@@ -1,0 +1,50 @@
+{
+  "info": {
+    "name": "AntiPay API",
+    "_postman_id": "antipay-collection",
+    "description": "Official AntiPay API collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Payment Session",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "x-api-key", "value": "YOUR_API_KEY" }
+        ],
+        "url": {
+          "raw": "https://pay.antipay.site/v1/create",
+          "protocol": "https",
+          "host": ["pay", "antipay", "site"],
+          "path": ["v1", "create"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 145.5,\n  \"val_id\": \"ORDER_88721\",\n  \"webhook_url\": \"https://your-site.com/api/webhook\",\n  \"redirect_success_url\": \"https://your-site.com/payment/success\",\n  \"redirect_cancel_url\": \"https://your-site.com/payment/cancel\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Verify Payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "x-api-key", "value": "YOUR_API_KEY" }
+        ],
+        "url": {
+          "raw": "https://pay.antipay.site/v1/verify",
+          "protocol": "https",
+          "host": ["pay", "antipay", "site"],
+          "path": ["v1", "verify"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sessionId\": \"SESS_123\",\n  \"trxId\": \"8J9A1X7K\"\n}"
+        }
+      }
+    }
+  ]
+}
